@@ -127,3 +127,39 @@
             <button class="btn" onclick="createConfetti()">Більше магії!</button>
         </div>
     </div>
+
+    <script>
+        function createSparkles() {
+            const body = document.querySelector('body');
+            for(let i = 0; i < 50; i++) {
+                let sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                let size = Math.random() * 4 + 'px';
+                sparkle.style.width = size;
+                sparkle.style.height = size;
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                sparkle.style.animationDelay = Math.random() * 5 + 's';
+                body.appendChild(sparkle);
+            }
+        }
+
+        function createConfetti() {
+            for(let i = 0; i < 30; i++) {
+                let confetti = document.createElement('div');
+                confetti.className = 'sparkle';
+                confetti.style.background = `gold`;
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.bottom = '0';
+                confetti.style.animation = 'fly 2s ease-out forwards';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 2000);
+            }
+        }
+
+        createSparkles();
+    </script>
+</body>
+</html>
